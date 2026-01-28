@@ -28,10 +28,10 @@
 
 ## 技術棧
 
-- **React 19.2.3**：最新穩定版，提供 concurrent rendering。
-- **React Router 7.12.0**：處理路由與 nested layout。
-- **TypeScript**：類型安全。
-- **Vite**：快速開發與建置工具。
+- **React 19.2.3**：前端 UI 建構框架。
+- **React Router 7.12.0**：前端路由與頁面導覽管理。
+- **TypeScript**：靜態型別系統，提升可維護性。
+- **Vite**：開發與建置工具鏈。
 
 
 ## 專案架構
@@ -45,8 +45,8 @@ app/
 │   ├── HeroProfile.tsx  # 英雄個人頁面
 │   ├── PageLoading.tsx  # 顯示全頁載入進度條（導航/載入中）
 │   ├── ErrorFallback.tsx# 錯誤顯示
-│   ├── icons/           # 共用icons
-│   └── ui/              # 共用UI艿件
+│   ├── icons/           # 共用 icons
+│   └── ui/              # 共用 UI 元件
 ├── constants/           # 常數與靜態設定
 │   └── hero.ts          # 英雄相關常數
 ├── hooks/               # 抽出的可重用邏輯 hooks
@@ -68,16 +68,12 @@ app/
 └── app.css              # 全域樣式
 ```
 
-- **Application 邏輯架構**：以 React Router 的 `clientLoader` 取得資料（`/heroes` 列表與 `/heroes/:heroId` 明細/能力值），API 封裝在 `services/api.ts` + `services/heroService.ts`；UI 元件（HeroList/HeroInfo/HeroProfile）負責呈現、互動與狀態管理，其中 HeroProfile 負責點數驗證、儲存與離開提示，HeroInfo 處理圖片載入/失敗顯示。
+- **Application 邏輯架構**：以 React Router 的 `clientLoader` 取得資料（`/heroes` 列表與 `/heroes/:heroId` 明細/能力值），API 封裝在 `services/api.ts` + `services/heroService.ts`；UI 元件（HeroList/HeroInfo/HeroProfile）負責呈現、互動與狀態管理，其中 HeroProfile 處理能力值調整/儲存，未儲存離開提示由 hook 處理，HeroInfo 處理圖片載入/失敗顯示。
 
 
 ## 設計理念
 
-- **單一責任原則**：元件聚焦明確職責（列表、卡片、資訊、編輯表單分離），降低耦合。
-- **使用者回饋**：載入中、錯誤與未儲存離開皆有提示，避免操作不確定性。
-- **一致與可預期**：統一按鈕與版型，降低學習成本。
-- **可維護性**：TypeScript 強化型別安全，Tailwind 簡化樣式並避免重複 CSS。
-- **使用者體驗**：載入狀態、錯誤處理、響應式設計。
+本專案以單一責任原則為基礎，將列表、卡片與資訊呈現等職責分離以降低耦合，並重視使用者回饋，對載入、錯誤與未儲存離開提供提示以避免操作不確定性。介面設計維持一致與可預期的按鈕與版型以降低學習成本，並透過 TypeScript 強化型別安全、使用 Tailwind 簡化樣式以提升可維護性。考量需求以互動為主且無 SEO 要求，本專案採 SPA 架構而未使用 SSR，整體在載入狀態、錯誤處理與響應式呈現上兼顧使用者體驗。
 
 ## 第三方 Library 理解與選擇
 
