@@ -5,26 +5,23 @@
    npm install
    ```
 
-2. 啟動開發伺服器：
+2. 建立本機環境變數（複製 `.env.example` 為 `.env`，並填入設定）。
+
+3. 啟動開發伺服器：
    ```bash
    npm run dev
    ```
    訪問 http://localhost:5173/ 會自動重定向到英雄列表。
 
-3. 建置生產版本：
+4. 建置生產版本：
    ```bash
    npm run build
    ```
 
-4. 類型檢查：
+5. 類型檢查：
    ```bash
    npm run typecheck
    ```
-
-```
-.env                     # 本機環境變數（不提交）
-.env.example             # 環境變數範例
-```   
 
 ## 技術棧
 
