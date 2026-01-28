@@ -1,13 +1,10 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { redirect } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+// 將根路徑導向 /heroes，作為進站預設入口
+export function clientLoader() {
+  return redirect("/heroes");
 }
 
 export default function Home() {
-  return <Welcome />;
+  return null;
 }

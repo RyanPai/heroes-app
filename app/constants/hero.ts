@@ -1,0 +1,1 @@
+export const STAT_KEYS = ["str", "int", "agi", "luk"] as const;
